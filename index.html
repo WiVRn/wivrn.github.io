@@ -86,7 +86,7 @@
                                 <p class="text-black-50 mb-0">
                                     Head tracking, controller tracking, and hand tracking data are sent from your headset to your PC,
                                     and audio and video data are sent from your PC to your headset over WiFi, with software or hardware
-                                    compression in H264, HEVC or AV1.
+                                    compression in H264 or HEVC.
                             </p>
                             </div>
                         </div>
@@ -135,15 +135,15 @@
                     <div class="col-lg-8">
                         <h2 class="text-black mb-4">Get started</h2>
 
-                        <div class="row gx-0 justify-content-center">
+                        <div class="row gx-0 my-5 justify-content-center">
                             <h4>Install the server on your PC</h4>
 
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
-<!--                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="flatpak-tab" data-bs-toggle="tab" data-bs-target="#flatpak" type="button" role="tab" aria-controls="flatpak" aria-selected="true">Flatpak</button>
-                                </li>-->
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="archlinux-tab" data-bs-toggle="tab" data-bs-target="#archlinux" type="button" role="tab" aria-controls="archlinux" aria-selected="true">Arch Linux</button>
+                                    <button class="nav-link active" id="flatpak-tab" data-bs-toggle="tab" data-bs-target="#flatpak" type="button" role="tab" aria-controls="flatpak" aria-selected="true">Flatpak</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="archlinux-tab" data-bs-toggle="tab" data-bs-target="#archlinux" type="button" role="tab" aria-controls="archlinux" aria-selected="true">Arch Linux</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="gentoo-tab" data-bs-toggle="tab" data-bs-target="#gentoo" type="button" role="tab" aria-controls="gentoo" aria-selected="false">Gentoo</button>
@@ -152,27 +152,26 @@
                                     <button class="nav-link" id="source-tab" data-bs-toggle="tab" data-bs-target="#source" type="button" role="tab" aria-controls="source" aria-selected="false">From source</button>
                                 </li>
                             </ul>
-                            <div class="tab-content" id="myTabContent" style="height: 8em">
-<!--                                <div class="tab-pane py-3 fade show active" id="flatpak" role="tabpanel" aria-labelledby="flatpak-tab">
-                                    WiVRn is not yet on flathub: to install it with flatpak, <a href="https://github.com/WiVRn/WiVRn/releases/latest/download/wivrn-server.flatpak">download it from GitHub</a>
-                                    and install it with <code>flatpak install --user wivrn-server.flatpak</code>.
-                                </div>-->
-                                <div class="tab-pane py-3 fade show active" id="archlinux" role="tabpanel" aria-labelledby="archlinux-tab">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="flatpak" role="tabpanel" aria-labelledby="flatpak-tab">
+                                    <a href="https://flathub.org/apps/io.github.wivrn.wivrn"><img width="240" alt="Get it on Flathub" src="https://flathub.org/api/badge?locale=en" class="mx-2 my-2"/></a>
+                                </div>
+                                <div class="tab-pane fade" id="archlinux" role="tabpanel" aria-labelledby="archlinux-tab">
                                     A <a href="https://aur.archlinux.org/packages/wivrn-server">wivrn-server</a> package is available on AUR:<br/>
                                     <code>
                                     yay -S wivrn-server
                                     </code>
                                 </div>
-                                <div class="tab-pane py-3 fade" id="gentoo" role="tabpanel" aria-labelledby="gentoo-tab">
+                                <div class="tab-pane fade" id="gentoo" role="tabpanel" aria-labelledby="gentoo-tab">
                                     A <a href="https://gitweb.gentoo.org/repo/proj/guru.git/tree/media-libs/wivrn">wivrn</a> package is available on Guru.
                                 </div>
-                                <div class="tab-pane py-3 fade" id="source" role="tabpanel" aria-labelledby="source-tab">
+                                <div class="tab-pane fade" id="source" role="tabpanel" aria-labelledby="source-tab">
                                     Instructions for building WiVRn from source are available on the <a href="https://github.com/WiVRn/WiVRn/blob/master/docs/building.md">GitHub repository</a>.
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row gx-0 justify-content-center">
+                        <div class="row gx-0 my-5 justify-content-center">
                             <h4>Install the client on your headset</h4>
 
                             <ul class="nav nav-tabs" id="myTab2" role="tablist">
@@ -183,13 +182,13 @@
                                     <button class="nav-link" id="archlinux-tab" data-bs-toggle="tab" data-bs-target="#sidequest" type="button" role="tab" aria-controls="sidequest" aria-selected="false">SideQuest</button>
                                 </li>
                             </ul>
-                            <div class="tab-content" id="myTabContent2" style="height: 8em">
-                                <div class="tab-pane py-3 fade show active" id="adb" role="tabpanel" aria-labelledby="adb-tab">
+                            <div class="tab-content" id="myTabContent2">
+                                <div class="tab-pane fade show active" id="adb" role="tabpanel" aria-labelledby="adb-tab">
                                     Your headset needs to be configured in developer mode.<br/>
                                     Download the <a href="https://github.com/WiVRn/WiVRn/releases/latest/download/WiVRn-standard-release.apk">latest WiVRn client</a> from GitHub.<br/>
                                     Install the APK with <code>adb install WiVRn-standard-release.apk</code>
                                 </div>
-                                <div class="tab-pane py-3 fade" id="sidequest" role="tabpanel" aria-labelledby="sidequest-tab">
+                                <div class="tab-pane fade" id="sidequest" role="tabpanel" aria-labelledby="sidequest-tab">
                                     Install <a href="https://sidequestvr.com/setup-howto">SideQuest</a>.<br/>
                                     Download the <a href="https://github.com/WiVRn/WiVRn/releases/latest/download/WiVRn-standard-release.apk">latest WiVRn client</a> from GitHub.<br/>
                                     TODO Using sidequest
@@ -200,7 +199,19 @@
                         <div class="row gx-0 justify-content-center">
                             <h4>Start WiVRn</h4>
                             <div>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                                <ol>
+                                    <li>Start the WiVRn server on your PC<br/>TODO: image</li>
+                                    <li>Start the WiVRn client on your headset<br/>TODO: image</li>
+                                    <li>Connect to your PC from your headset<br/>TODO: image</li>
+                                    <li>Start a VR application from your PC</li>
+                                </ol>
+                                For a SteamVR game, you will also need to set additional options. Right-click on the game in your library,
+                                select properties and paste <code>PRESSURE_VESSEL_FILESYSTEMS_RW=$XDG_RUNTIME_DIR/wivrn/comp_ipc %command%</code>
+                                in the launch options:
+<!--                                 <div class="col-xl-4 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/steamvr-1.png" alt="..." /></div> -->
+                                <div class="col-lg-10 mx-auto d-block my-4"><img class="img-fluid" src="assets/img/steamvr-2.png" alt="..." /></div>
+<!--                                 <img src="assets/img/steamvr-1.png"/> -->
+<!--                                 <img src="assets/img/steamvr-2.png"/> -->
                             </div>
                         </div>
                     </div>
@@ -219,10 +230,6 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8">
                         <h2 class="text-black mb-4">Demo</h2>
-
-                        <div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                        </div>
 
                         <video controls class="ratio ratio-16x9">
                             <source src="assets/demo-av1.webm" type="video/webm" />
@@ -246,50 +253,7 @@
                 </div>
             </div>
         </section>
-        <!-- Signup-->
-<!--         <section class="signup-section" id="signup"> -->
-<!--             <div class="container px-4 px-lg-5"> -->
-<!--                 <div class="row gx-4 gx-lg-5"> -->
-<!--                     <div class="col-md-10 col-lg-8 mx-auto text-center"> -->
-<!--                         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i> -->
-<!--                         <h2 class="text-white mb-5">Subscribe to receive updates!</h2> -->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-<!--                         <form class="form-signup" id="contactForm" data-sb-form-api-token="API_TOKEN"> -->
-                            <!-- Email address input-->
-<!--                             <div class="row input-group-newsletter"> -->
-<!--                                 <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email" /></div> -->
-<!--                                 <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Notify Me!</button></div> -->
-<!--                             </div> -->
-<!--                             <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">An email is required.</div> -->
-<!--                             <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email is not valid.</div> -->
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-<!--                             <div class="d-none" id="submitSuccessMessage"> -->
-<!--                                 <div class="text-center mb-3 mt-2 text-white"> -->
-<!--                                     <div class="fw-bolder">Form submission successful!</div> -->
-<!--                                     To activate this form, sign up at -->
-<!--                                     <br /> -->
-<!--                                     <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-<!--                             <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error sending message!</div></div> -->
-<!--                         </form> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--         </section> -->
+
         <!-- Contact-->
         <section class="contact-section bg-black" id="contact">
             <div class="container px-4 px-lg-5">
@@ -332,6 +296,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5"><!-- TODO Copyright &copy; Your Website 2023--></div></footer>
         <!-- Bootstrap core JS-->
