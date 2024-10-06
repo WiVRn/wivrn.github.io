@@ -14,6 +14,25 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+
+        <script>
+
+            function select_tab(id)
+            {
+                var someTabTriggerEl = document.querySelector(id)
+                var tab = new bootstrap.Tab(someTabTriggerEl)
+                tab.show()
+            }
+
+            function select_carousel(id, slide_nr)
+            {
+                const myCarouselElement = document.querySelector(id)
+
+                const carousel = new bootstrap.Carousel(myCarouselElement)
+                carousel.to(slide_nr)
+            }
+
+        </script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -101,7 +120,7 @@
                                     <div class="project-text w-100 my-auto text-center text-lg-left">
                                         <h4 class="text-white">Compatible with many headsets</h4>
                                         <p class="mb-0 text-white-50">
-                                        WiVRn works with Meta Quest 1, 2, 3 and Pro, with Pico Neo 3 and 4, and with HTC Vive Focus 3 and XR Elite.
+                                        WiVRn works with Meta Quest 1, 2, 3 and Pro, with Pico Neo 4, and with HTC Vive Focus 3 and XR Elite.
                                         </p>
                                     </div>
                                 </div>
@@ -137,7 +156,7 @@
                         <h2 class="text-black mb-4">Get started</h2>
 
                         <div class="row gx-0 my-5 justify-content-center">
-                            <h4>Install the server on your PC</h4>
+                            <h4>Install the dashboard on your computer</h4>
 
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
@@ -155,19 +174,20 @@
                             </ul>
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="flatpak" role="tabpanel" aria-labelledby="flatpak-tab">
+                                    <p>The dashboard is available on Flathub:</p>
                                     <a href="https://flathub.org/apps/io.github.wivrn.wivrn"><img width="240" alt="Get it on Flathub" src="https://flathub.org/api/badge?locale=en" class="mx-2 my-2"/></a>
                                 </div>
                                 <div class="tab-pane fade" id="archlinux" role="tabpanel" aria-labelledby="archlinux-tab">
-                                    A <a href="https://aur.archlinux.org/packages/wivrn-server">wivrn-server</a> package is available on AUR:<br/>
+                                    A <a href="https://aur.archlinux.org/packages/wivrn-dashboard">wivrn-dashboard</a> package is available on AUR:<br/>
                                     <code>
-                                    yay -S wivrn-server
+                                    yay -S wivrn-dashboard
                                     </code>
                                 </div>
                                 <div class="tab-pane fade" id="gentoo" role="tabpanel" aria-labelledby="gentoo-tab">
                                     A <a href="https://gitweb.gentoo.org/repo/proj/guru.git/tree/media-libs/wivrn">wivrn</a> package is available on Guru.
                                 </div>
                                 <div class="tab-pane fade" id="source" role="tabpanel" aria-labelledby="source-tab">
-                                    Instructions for building WiVRn from source are available on the <a href="https://github.com/WiVRn/WiVRn/blob/master/docs/building.md">GitHub repository</a>.
+                                    Instructions for building the WiVRn dashboard from source are available on the <a href="https://github.com/WiVRn/WiVRn/blob/master/docs/building.md#server-pc">GitHub repository</a>.
                                 </div>
                             </div>
                         </div>
@@ -177,44 +197,125 @@
 
                             <ul class="nav nav-tabs" id="myTab2" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="flatpak-tab" data-bs-toggle="tab" data-bs-target="#adb" type="button" role="tab" aria-controls="adb" aria-selected="true">adb</button>
+                                    <button class="nav-link active" id="metastore-tab" data-bs-toggle="tab" data-bs-target="#metastore" type="button" role="tab" aria-controls="adb" aria-selected="true">Meta Store</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="archlinux-tab" data-bs-toggle="tab" data-bs-target="#sidequest" type="button" role="tab" aria-controls="sidequest" aria-selected="false">SideQuest</button>
+                                    <button class="nav-link" id="wizard-tab" data-bs-toggle="tab" data-bs-target="#wizard" type="button" role="tab" aria-controls="wizard" aria-selected="true">Connection Wizard</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="source2-tab" data-bs-toggle="tab" data-bs-target="#source2" type="button" role="tab" aria-controls="source2" aria-selected="false">From source</button>
                                 </li>
                             </ul>
                             <div class="tab-content" id="myTabContent2">
-                                <div class="tab-pane fade show active" id="adb" role="tabpanel" aria-labelledby="adb-tab">
+                                <div class="tab-pane fade show active" id="metastore" role="tabpanel" aria-labelledby="metastore-tab">
+                                    <p>WiVRn is available on the <a href="https://www.meta.com/experiences/7959676140827574/">Meta Store</a> for Quest 2 / 3 / Pro. For other headsets, including the Quest 1, you will have to sideload it by following the <a href="" onclick="select_tab('#wizard-tab'); return false">connection wizard</a> in the dashboard<!-- or manually with <a href="" onclick="select_tab('#wizard-tab'); return false">adb</a>-->.</p>
+                                </div>
+                                <div class="tab-pane fade" id="wizard" role="tabpanel" aria-labelledby="wizard-tab">
+                                    <p>When you start the dashboard the first time, the connection wizard will help you install the client on your headset.</p>
+                                    <p>You can run it later by clicking the "Wizard" button in the dashboard.</p>
+                                </div>
+<!--                                <div class="tab-pane fade" id="adb" role="tabpanel" aria-labelledby="adb-tab">
                                     Your headset needs to be configured in developer mode.<br/>
                                     Download the <a href="https://github.com/WiVRn/WiVRn/releases/latest/download/WiVRn-standard-release.apk">latest WiVRn client</a> from GitHub.<br/>
                                     Install the APK with <code>adb install WiVRn-standard-release.apk</code>
-                                </div>
-                                <div class="tab-pane fade" id="sidequest" role="tabpanel" aria-labelledby="sidequest-tab">
-                                    Install <a href="https://sidequestvr.com/setup-howto">SideQuest</a>.<br/>
-                                    Download the <a href="https://github.com/WiVRn/WiVRn/releases/latest/download/WiVRn-standard-release.apk">latest WiVRn client</a> from GitHub.<br/>
-<!--                                     TODO Using sidequest -->
+                                </div>-->
+                                <div class="tab-pane fade" id="source2" role="tabpanel" aria-labelledby="source2-tab">
+                                    Instructions for building the WiVRn headset app from source are available on the <a href="https://github.com/WiVRn/WiVRn/blob/master/docs/building.md#client-headset">GitHub repository</a>.
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row gx-0 justify-content-center">
-                            <h4>Start WiVRn</h4>
+
+                        <div class="row gx-0 my-5 justify-content-center">
+                            <h4>Connect your headset to your computer</h4>
                             <div>
                                 <ol>
-                                    <li>Start the WiVRn server on your PC<br/><!--TODO: image--></li>
-                                    <li>Start the WiVRn client on your headset<br/><!--TODO: image--></li>
+                                    <li>Start the WiVRn dashboard on your PC<br/><!--TODO: image--></li>
+                                    <li>Start the WiVRn client on your headset
+                                    <p>On a Quest, if you did not install it from the Meta Store, it will be in the <a href="" onclick="select_carousel('#getting-started-slides', 4); return false">"Unknown Sources"</a> section.</p>
+
+
+                                    <!--<br/>TODO: image--></li>
                                     <li>Connect to your PC from your headset<br/><!--TODO: image--></li>
                                     <li>Start a VR application from your PC</li>
                                 </ol>
-                                For a SteamVR game, you will also need to set additional options. Right-click on the game in your library,
-                                select properties and paste <code>PRESSURE_VESSEL_FILESYSTEMS_RW=$XDG_RUNTIME_DIR/wivrn/comp_ipc %command%</code>
-                                in the launch options:
-<!--                                 <div class="col-xl-4 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/steamvr-1.png" alt="..." /></div> -->
-                                <div class="col-lg-10 mx-auto d-block my-4"><img class="img-fluid" src="assets/img/steamvr-2.png" alt="..." /></div>
-<!--                                 <img src="assets/img/steamvr-1.png"/> -->
-<!--                                 <img src="assets/img/steamvr-2.png"/> -->
+                                For SteamVR games, you will also need to set the <a href="" onclick="select_carousel('#getting-started-slides', 3); return false">launch options</a>. Right-click on the game in your library,
+                                select properties and paste the launch options from the <a href="" onclick="select_carousel('#getting-started-slides', 1); return false">dashboard</a>.
                             </div>
                         </div>
+
+                        <div class="row gx-0 justify-content-center">
+                            <div id="getting-started-slides" class="carousel slide">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#getting-started-slides" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#getting-started-slides" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#getting-started-slides" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#getting-started-slides" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#getting-started-slides" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                    <button type="button" data-bs-target="#getting-started-slides" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                    <button type="button" data-bs-target="#getting-started-slides" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="screenshots/dashboard-1.png" class="d-block w-100">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <p>Use the connection wizard to download the client app</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <img src="screenshots/dashboard-2.png" class="d-block w-100">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <p>TBD</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <img src="screenshots/dashboard-3.png" class="d-block w-100">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <p>TBD</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <img src="screenshots/steam-config.png" class="d-block w-100">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <p>Set the correct launch options for Steam games</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <img src="screenshots/vr-applist.png" class="d-block w-100">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <p>THe client app might be in "unknown sources" when it is not installed through the store</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <img src="screenshots/vr-serverlist.png" class="d-block w-100">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <p>TBD</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <img src="screenshots/vr-connected.png" class="d-block w-100">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <p>TBD</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#getting-started-slides" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#getting-started-slides" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

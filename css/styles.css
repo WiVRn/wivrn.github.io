@@ -11217,3 +11217,22 @@ body {
 .footer {
   padding: 5rem 0;
 }
+
+
+
+.carousel-caption {
+  width: 100%;
+  position: absolute;
+  right: 0%;
+  bottom: 0rem;
+  left: 0%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.carousel-control-prev-icon {
+  background-image: url("../prev.svg");
+}
+
+.carousel-control-next-icon {
+  background-image: url("../next.svg");
+}
