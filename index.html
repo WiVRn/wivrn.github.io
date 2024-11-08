@@ -47,6 +47,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#get-started">Get started</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#settings">Settings</a></li>
                         <li class="nav-item"><a class="nav-link" href="#demo">Demo</a></li>
                         <li class="nav-item"><a class="nav-link" href="#privacy">Privacy</a></li>
                         <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
@@ -226,58 +227,6 @@
                         </div>
 
                         <div class="row gx-0 my-5 justify-content-center">
-                            <h4>Settings guide</h4>
-
-                            <ul class="nav nav-tabs" id="myTab2" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="foveation-tab" data-bs-toggle="tab" data-bs-target="#foveation" type="button" role="tab" aria-controls="adb" aria-selected="true">Foveation</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="bitrate-tab" data-bs-toggle="tab" data-bs-target="#bitrate" type="button" role="tab" aria-controls="bitrate" aria-selected="true">Bitrate</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="enconders-tab" data-bs-toggle="tab" data-bs-target="#encoders" type="button" role="tab" aria-controls="encoders" aria-selected="false">Encoders</button>
-                                </li>
-                            </ul>
-                            <div class="tab-content" id="myTabContent2">
-                                <div class="tab-pane fade show active" id="foveation" role="tabpanel" aria-labelledby="foveation-tab">
-                                    <p>A stronger foveation makes the image sharper in the center than in the periphery and makes the decoding faster. This is better for fast paced games. </p>
-                                    <p>A weaker foveation gives a uniform sharpness in the whole image.</p>          
-                                    <p>The recommended values are between 20% and 50% for headsets without eye tracking and between 50% and 70% for headsets with eye tracking.</p>
-                                    <img src="screenshots/settings/foveation.jpg" class="d-block w-100">
-                                </div>
-                                <div class="tab-pane fade" id="bitrate" role="tabpanel" aria-labelledby="bitrate-tab">
-                                    <p>Bitrate of the video, in bit/s. Split among decoders based on size and codecs.</p>
-                                    <p>A higher bitrate directly improves image quality by reducing pixelation in fast-paced scenes or in complex visuals, such as landscapes with dense foliage. However, it may also increase latency or overload the network, encoder, or decoder.</p>
-                                    <p>For testing purposes, a bitrate of 50 Mbps is a good starting point for wireless connections. Wired connections, if supported by the hardware, should be able to handle up to 500 Mbps.</p>
-                                    <img src="screenshots/settings/bitrate.jpg" class="d-block w-100">
-                                </div>
-                                <div class="tab-pane fade" id="encoders" role="tabpanel" aria-labelledby="encoders">
-                                    <p>Encoders compresses video data in real-time to reduce bandwidth and latency, enabling smooth transmission to the headset.</p>
-                                    <p>Default value: 3 encoders in order 1/8th, 3/8th and 4/8th of the image.</p>
-                                    <p>WiVRn has the ability to split the video in blocks that are processed independently, this may use resources more effectively and reduce latency. All the provided encoders are put into groups, groups are executed concurrently and items within a group are processed sequentially.</p>
-                                    <p>It is possible to mix CPU/GPU encoding if you have spare CPU cores. On AMD systems, this can provide a significant improvement. For high bitrates, avoid software encoding, as CPU time increases significantly.</p>
-                                    <h5><strong>Encoder</strong></h5>
-                                    <p>Default value: <mark>nvenc</mark> if Nvidia GPU and compiled with nvenc, <mark>vaapi</mark> for all other GPU when compiled with ffmpeg, else <mark>x264</mark>.</p>
-                                    <p>Identifier of the encoder, one of</p>
-                                    <ul>
-                                        <li><mark>x264:</mark> software encoding</li>
-                                        <li><mark>NVENC:</mark>  Nvidia hardware encoding</li>
-                                        <li><mark>VAAPI:</mark>  AMD/Intel hardware encoding</li>
-                                        <li><mark>Vulkan:</mark>  experimental, for any GPU that supports Vulkan video encode</li>
-                                    </ul>
-                                    <h5><strong>Codec</strong></h5>
-                                    <p>Default value: first supported by both headset and encoder of <mark>av1</mark>, <mark>h264</mark>, <mark>h265</mark>.</p>
-                                    <p>One of <mark>h264</mark>, <mark>h265</mark> or <mark>av1</mark>. Not all encoders support every codec, <mark>x264</mark> and <mark>vulkan</mark> only support <mark>h264</mark>, <mark>nvenc</mark> only <mark>h264</mark> and <mark>h265</mark>.</p>
-                                    <p>On the dashboard, you can add a new encoder by splitting an existing one and clicking near an edge. Drag the edge to resize, or remove encoders by moving the line to one of the limits.</p>
-                                    <p>By clicking on each block, like the one highlighted in blue in the image, you can select the Encoder and Codec.</p>
-                                    <img src="screenshots/settings/encoders.jpg" class="d-block w-100">
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row gx-0 my-5 justify-content-center">
                             <h4>Connect your headset to your computer</h4>
                             <div>
                                 <ol>
@@ -376,6 +325,79 @@
 <!--             </div> -->
         </section>
 
+
+        <!-- Settings -->
+        <section class="get-started-section bg-light" id="settings">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="text-black mb-4">Settings</h2>
+
+                        <div class="row gx-0 my-5 justify-content-center">
+                            <h4>Settings guide</h4>
+
+                            <ul class="nav nav-tabs" id="myTab2" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="foveation-tab" data-bs-toggle="tab" data-bs-target="#foveation" type="button" role="tab" aria-controls="adb" aria-selected="true">Foveation</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="bitrate-tab" data-bs-toggle="tab" data-bs-target="#bitrate" type="button" role="tab" aria-controls="bitrate" aria-selected="true">Bitrate</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="enconders-tab" data-bs-toggle="tab" data-bs-target="#encoders" type="button" role="tab" aria-controls="encoders" aria-selected="false">Encoders</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent2">
+                                <div class="tab-pane fade show active" id="foveation" role="tabpanel" aria-labelledby="foveation-tab">
+                                    <p>A stronger foveation makes the image sharper in the center than in the periphery and makes the decoding faster. This is better for fast paced games. </p>
+
+                                    <p>A weaker foveation gives a uniform sharpness in the whole image.</p>
+                                        
+                                    <p>The recommended values are between 20% and 50% for headsets without eye tracking and between 50% and 70% for headsets with eye tracking.</p>
+                                </div>
+                                <div class="tab-pane fade" id="bitrate" role="tabpanel" aria-labelledby="bitrate-tab">
+                                    <p>Bitrate of the video, in Mbit/s.. Split among decoders based on size and codecs.</p>
+                                    <p>A higher bitrate directly improves image quality by reducing pixelation in fast-paced scenes or in complex visuals, such as landscapes with dense foliage. However, it may also increase latency or overload the network, encoder, or decoder.</p>
+                                    <p>For testing purposes, a bitrate of 50 Mbps is a good starting point for wireless connections. Wired connections, if supported by the hardware, should be able to handle up to 500 Mbps.</p>
+                                </div>
+<!--                                <div class="tab-pane fade" id="adb" role="tabpanel" aria-labelledby="adb-tab">
+                                    Your headset needs to be configured in developer mode.<br/>
+                                    Download the <a href="https://github.com/WiVRn/WiVRn/releases/latest/download/WiVRn-standard-release.apk">latest WiVRn client</a> from GitHub.<br/>
+                                    Install the APK with <code>adb install WiVRn-standard-release.apk</code>
+                                </div>-->
+                                <div class="tab-pane fade" id="encoders" role="tabpanel" aria-labelledby="encoders">
+                                    <p>Encoders compresses video data in real-time to reduce bandwidth and latency, enabling smooth transmission to the headset.</p>
+                                    <p>WiVRn has the ability to split the video in blocks that are processed independently, this may use resources more effectively and reduce latency. All the provided encoders are put into groups, groups are executed concurrently and items within a group are processed sequentially.</p>
+                                    <p>It is possible to mix CPU/GPU encoding if you have spare CPU cores. On AMD systems, this can provide a significant improvement. For high bitrates, avoid software encoding, as CPU time increases significantly.</p>
+                                    <p>Default value: 3 encoders in order 1/8th, 3/8th and 4/8th of the image.</p>
+                                    <h5><strong>Encoder</strong></h5>
+                                    <p>Identifier of the encoder, one of</p>
+                                    <ul>
+                                        <li>x264: Software encoding</li>
+                                        <li>NVENC: Nvidia hardware encoding</li>
+                                        <li>VAAPI: AMD/Intel hardware encoding</li>
+                                        <li>Vulkan: Experimental, for any GPU that supports Vulkan video encode</li>
+                                    </ul>
+                                    <p>Default value: nvenc if Nvidia GPU and compiled with nvenc, vaapi for all other GPU when compiled with ffmpeg, else x264.</p>
+                                    <h5><strong>Codec</strong></h5>
+                                    <p>One of h264, h265 or av1. Not all encoders support every codec, x264 and vulkan only support h264, nvenc only h264 and h265.</p>
+                                    <p>On the dashboard, you can add a new encoder by splitting an existing one and clicking near an edge. Drag the edge to resize, or remove encoders by moving the line to one of the limits.</p>
+                                    <p>By clicking on each block, like the one highlighted in blue in the image, you can select the Encoder and Codec.</p>
+                                    <p>Default value: first supported by both headset and encoder of av1, h264, h265.</p>
+                                </div>
+                            </div>
+                            <img src="screenshots/settings/settings.png" class="d-block w-100"> 
+                        </div>                  
+                    </div>
+                </div>
+            </div>
+<!--             <div class="container px-4 px-lg-5"> -->
+<!--                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center"> -->
+<!--                 </div> -->
+<!--             </div> -->
+        </section>
+
+
         <!-- Demo -->
         <section class="demo-section bg-light" id="demo">
             <div class="container px-4 px-lg-5">
@@ -420,8 +442,8 @@
                             <p>If the server list is empty in the headset app:</p>
                             <ul>
                                 <li>Make sure your computer is connected on the same network as your headset.</li>
-                                <li>Check that <mark>avahi</mark> is running with <mark>systemctl status avahi-daemon</mark>. If it is not, enable it with <mark>systemctl enable --now avahi-daemon</mark>.</li>
-                                <li>If you have a firewall, check that port <mark>5353</mark> (UDP) is open.</li>
+                                <li>Check that <strong>avahi</strong> is running with <pre>systemctl status avahi-daemon</pre>. If it is not, enable it with <pre>systemctl enable --now avahi-daemon</pre>.</li>
+                                <li>If you have a firewall, check that port <strong>5353</strong>(UDP) is open.</li>
                             </ul>                        
                         </div>
                         <br/>

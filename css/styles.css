@@ -270,11 +270,17 @@ samp {
 }
 
 pre {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  overflow: auto;
-  font-size: 0.875em;
+  /*! position: relative; */
+  background: #c7c9cc;
+  /*! padding: 10px; */
+  font-size: 15px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  border: 1px solid #e6e7e9;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0;
+  padding-right: 0.2rem;
 }
 pre code {
   font-size: inherit;
@@ -11236,3 +11242,26 @@ body {
 .carousel-control-next-icon {
   background-image: url("../next.svg");
 }
+
+
+
+
+
+
+.copy-button {
+margin-left: 0.7rem;
+  cursor: pointer;
+  color: #fff;
+  background: gray;
+  border-radius: 0.5em;
+  padding: 2px 7px;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.copy-button:hover {
+  color: #000;
+}
+
+
