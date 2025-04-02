@@ -354,7 +354,7 @@
                                     <p>A stronger foveation makes the image sharper in the center than in the periphery and makes the decoding faster. This is better for fast paced games. </p>
 
                                     <p>A weaker foveation gives a uniform sharpness in the whole image.</p>
-                                        
+
                                     <p>The recommended values are between 20% and 50% for headsets without eye tracking and between 50% and 70% for headsets with eye tracking.</p>
                                 </div>
                                 <div class="tab-pane fade" id="bitrate" role="tabpanel" aria-labelledby="bitrate-tab">
@@ -388,8 +388,8 @@
                                     <p>Default value: first supported by both headset and encoder of av1, h264, h265.</p>
                                 </div>
                             </div>
-                            <img src="screenshots/settings/settings.png" class="d-block w-100"> 
-                        </div>                  
+                            <img src="screenshots/settings/settings.png" class="d-block w-100">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -446,20 +446,35 @@
                                 <li>Make sure your computer is connected on the same network as your headset.</li>
                                 <li>Check that <strong>avahi</strong> is running with <pre>systemctl status avahi-daemon</pre>. If it is not, enable it with <pre>systemctl enable --now avahi-daemon</pre>.</li>
                                 <li>If you have a firewall, check that port <strong>5353</strong>(UDP) is open.</li>
-                            </ul>                        
+                            </ul>
                         </div>
                         <br/>
                         <h4>My headset does not connect to my computer</h4>
                         <div>
                             <ul>
                                 <li>If you have a firewall, check that port 9757 (UDP and TCP) is open</li>
-                                <li>The server and client must be compatible:</li>
-                            </ul>                        
+                                <li>The server and client must be the same version</li>
+                            </ul>
+                        </div>
+                        <h4>I don't have any sound</h4>
+                        <div>
+                            <ul>
+                                <li>When the headset is connected, an audio device is created but not set as default. It can be set as default in your desktop's sound parameters.</li>
+                                <li>For microphone, you also have to enable it on headset as it requires a permission on the device. Simply click the microphone icon at the top of the main screen.</li>
+                            </ul>
+                        </div>
+                        <h4>Steam games don't launch on the headset</h4>
+                        <div>
+                            <ul>
+                                <li>Make sure that an OpenVR compatibility such as OpenComposite or xrizer is installed. The flatpak version includes OpenComposite.</li>
+                                <li>Copy the launch arguments listed in the dashboard in the Steam launch parameters for the game.</li>
+                                <li>When using flatpak Steam, additional permissions must be given for OpenXR files, see details in <a href="https://github.com/WiVRn/WiVRn?tab=readme-ov-file#steam-flatpak">readme</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </section> 
+        </section>
 
         <!-- Contact-->
         <section class="contact-section bg-black" id="contact">
